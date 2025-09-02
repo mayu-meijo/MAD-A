@@ -33,10 +33,15 @@ public class MainActivity extends AppCompatActivity {
         prefDataStore.getString("name").ifPresent(name -> binding.text.setText(name));
 
 
-        binding.button1.setOnClickListener(view ->{
+        binding.button2.setOnClickListener(view ->{
             var text = binding.editTextText.getText().toString();
             prefDataStore.setString("name", text);
         });
+        binding.button1.setOnClickListener(view ->{
+            var text = binding.editTextText.getText().toString();
+            binding.text.setText(text);
+        });
+
 
 
     }

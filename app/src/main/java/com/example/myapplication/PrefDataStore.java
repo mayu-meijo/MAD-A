@@ -42,7 +42,20 @@ public class PrefDataStore {
         return instance;
     }
 
-
+    /**
+     * Stringの値を取得する
+     *
+     * @param key 取得するキー
+     * @return 取得したStringのOptional
+     */
+    public Optional<String> getString(String key) {
+        return dataStore.data()
+                .map(prefs -> {
+                    var prefKey = PreferencesKeys.stringKey(key);
+                    return Optional.ofNullable(prefs.get(prefKey));
+                })
+                .blockingFirst();
+    }
     /**
      * Stringの値をを保存する
      *

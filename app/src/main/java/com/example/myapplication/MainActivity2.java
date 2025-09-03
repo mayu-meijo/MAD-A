@@ -27,15 +27,17 @@ public class MainActivity2 extends AppCompatActivity {
             return insets;
         });
 
-        binding.button1.setOnClickListener(v ->{
-                var intent = new Intent(this, MainActivity.class);
+        binding.button3.setOnClickListener(v ->{
+                var text = binding.editTextText2.getText().toString();
+                var intent = new Intent(this, MainActivity3.class);
+                intent.putExtra("title", text);
                 startActivity(intent);
                 });
 
         binding.button2.setOnClickListener(v ->{
                 var intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("https://www.amazon.co.jp/ref=nav_logo"));
+                intent.setData(Uri.parse("https://www.meijo-u.ac.jp/"));
                 startActivity(intent);
 
         });

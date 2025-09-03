@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -10,6 +11,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.myapplication.databinding.ActivityMain3Binding;
 import com.example.myapplication.databinding.ActivityMainBinding;
+
+import java.util.Optional;
 
 public class MainActivity3 extends AppCompatActivity {
     private ActivityMain3Binding binding;
@@ -24,9 +27,20 @@ public class MainActivity3 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Optional.ofNullable(getIntent().getStringExtra("text"))
+                .ifPresent(text -> binding.textView5.setText(text));
 
-        var editText = getIntent().getStringExtra("title");
-        binding.textView5.setText(editText);
+        binding.button1.setOnClickListener(view -> {
+            var intent = new Intent();
+            intent.putExtra("ret", "OK");
+            setResult(RESULT_OK, intent);
+            finish();
+        });
+
+        binding.button2.setOnClickListener(view -> {
+            setResult(RESULT_CANCELED);
+            finish();
+        });
 
     }
 }

@@ -47,7 +47,7 @@ public class MainActivity4 extends AppCompatActivity {
         });
 
         var request = new Request.Builder()
-                .url("https://api.github.com/gists/c2a7c39532239ff261be")
+                .url("https://mura.github.io/meijou-android-sample/gist.json")
                 // エラーになる場合は以下のURLを使う
                 //.url("https://mura.github.io/meijou-android-sample/gist.json")
                 .build();
